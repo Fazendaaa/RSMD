@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    mongodb:
+        image: mongo
+        container_name: mongodb
+        restart: always
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=example
+    shiny:
+        build: .
+        container_name: shiny
+        restart: always
+        environment:
+            - DB_USERNAME=root
+            - DB_PASSWORD=example
+            - DB_HOST=mongodb # caso mude o nome do 'container_name' do mongodb, coloque o novo aqui
+            - DB_PORT=27017
+        ports:
+            - "80:80"
+        depends_on:
+            - mongodb

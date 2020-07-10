@@ -1,0 +1,35 @@
+Package: RSMD
+Title: Showcase of R + Shiny + Mongo + Docker
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Lucas",
+           family = "Carrotta",
+           role = c("aut", "cre"),
+           email = "lucas.carotta@outlook.com")
+Description: The idea behind this package is to be a part of a tutorial about
+    running an Shiny webapp with Mongo as its database storage and all of this
+    trough Docker, without the need to install anything besides Docker.
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/Fazendaaa/RSMD
+BugReports: https://github.com/Fazendaaa/RSMD/issues
+Suggests: 
+    testthat,
+    covr,
+    lintr,
+    roxygen2,
+    pkgdown,
+    devtools,
+    goodpractice,
+    rmarkdown,
+    knitr,
+    assertthat
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
+Imports: 
+    shiny,
+    shinydashboard,
+    rbokeh,
+    mongolite,
+    magrittr

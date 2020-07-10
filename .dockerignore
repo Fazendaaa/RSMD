@@ -1,0 +1,6 @@
+.circleci
+.github
+img
+.gitingore
+deploy.sh
+docker-compose.yml
