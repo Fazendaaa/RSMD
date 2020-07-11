@@ -19,7 +19,7 @@ R + Shiny + Mongo + Docker
 
 ## Ideia
 
-Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalados na sua máquina -- eu não precisei para desenvolver nem rodar --, nem em outra máquina para acesso remoto ou coisa do tipo. A ideia é mostrar como desenvolver um projeto usando esta stack que consiga rodar em qualquer sistema operacional, seja ele Linux, Windows ou Mac sem mesmo ter as ferramentas instaladas, como eu descrevo mais [aqui]().
+Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalados na sua máquina -- eu não precisei para desenvolver nem rodar --, nem em outra máquina para acesso remoto ou coisa do tipo. A ideia é mostrar como desenvolver um projeto usando esta stack que consiga rodar em qualquer sistema operacional, seja ele Linux, Windows ou Mac sem mesmo ter as ferramentas instaladas, como eu descrevo mais [aqui](https://fazenda.hashnode.dev/analise-de-dados-site-banco-de-dados-tudo-no-isso-seu-pc-e-sem-precisar-instalar-o-r-shiny-e-o-mongo-ckcfwjz380058kns13oye8f03).
 
 ## Rodar
 
@@ -33,6 +33,8 @@ docker run --publish 80:80 fazenda/rsmd
 
 Abra seu navegador e digite `localhost` nele.
 
+![homepage](./img/first.webp)
+
 Esta versão se encontra sem BD mais por motivos de "segurança" de que você rodando ela na sua máquina não estará enviando seus dados para nenhum BD externo nem nada do tipo. Apenas aquele que configurar ativamente ou rodar nas sua máquina.
 
 ### Com o código e com BD
@@ -44,6 +46,8 @@ docker-compose up
 ```
 
 Abrir seu navegador e digitar `localhost` nele.
+
+![database](./img/second.webp)
 
 Caso resolva brincar e fazer alterações no código, se lembre de rodar com as próximas vezes com a flag `--build` para o `docker-compose` não utilizar o cache gerado pela última execução
 
@@ -84,6 +88,26 @@ Como o próprio `docker-compose.yml` mostra, este pacote não possui um banco de
             - /o/lugar/na/minha/maquina/para/salvar:/data/db  # caminho desejado, recomendo caminhos absolutos
 ...
 ```
+
+## Celular
+
+Você consegue usar no seu celular também:
+
+![celular](./img/third.webp)
+
+## TODO
+
+- Melhorar o exmplo
+- Adicinar PWA
+- Documentar em vários idiomas este `README.md`
+
+## Autor
+
+- [Fazendaaa](https://github.com/Fazendaaa)
+
+## Licença
+
+Utilizando a [GNU V2](./LICENSE)
 
 ## Referências
 
