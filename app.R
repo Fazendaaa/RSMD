@@ -4,12 +4,12 @@ library(shiny)
 library(shinyPWA)
 library(shinydashboard)
 
-# Caso não tenham sido disponibilizado, nenhuma operação com bd será feita
+# Caso não tenham sido disponibilizado, nenhuma operação com banco de dados (bd)
+# será feita
 db <- NULL
 
-# Verificador de usuário e senha para o bd
-if ("" != Sys.getenv('DB_USERNAME') &&
-    "" != Sys.getenv('DB_PASSWORD')) {
+# Verificador para criar conexão com bd
+if ("" == Sys.getenv('HAS_DB')) {
     url <- paste0("mongodb://",
                   Sys.getenv('DB_USERNAME'), ":",
                   Sys.getenv('DB_PASSWORD'), "@",
@@ -18,12 +18,16 @@ if ("" != Sys.getenv('DB_USERNAME') &&
     db <- mongo("rsmd", url = url)
 }
 
-shinyPWA(list(
-    
-))
-
 # "Site" em si
 ui <- dashboardPage(
+    shinyPWA(list(
+        name = 'R + Shiy + Mongo + Docker',
+        shorname = 'RSMD',
+        display = 'standalone',
+        backgroundcolor = '#fdfdfd',
+        themecolor = '#db4938',
+        orientation = 'portrait-primary'        
+    ))
     dashboardHeader(title = "RSMD demo"),
     dashboardSidebar(
         sidebarMenu(
