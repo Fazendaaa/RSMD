@@ -1,7 +1,8 @@
-library(shiny)
 library(rbokeh)
-library(shinydashboard)
 library(mongolite)
+library(shiny)
+library(shinyPWA)
+library(shinydashboard)
 
 # Caso não tenham sido disponibilizado, nenhuma operação com bd será feita
 db <- NULL
@@ -16,6 +17,10 @@ if ("" != Sys.getenv('DB_USERNAME') &&
                   Sys.getenv('DB_PORT'), "/")
     db <- mongo("rsmd", url = url)
 }
+
+shinyPWA(list(
+    
+))
 
 # "Site" em si
 ui <- dashboardPage(
