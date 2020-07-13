@@ -8,12 +8,12 @@ R + Shiny + Mongo + Docker
 <br>
 <br>
 
-[![made-with-r](https://img.shields.io/badge/Made%20with-R-1f425f.svg)](https://www.r-project.org/)
-[![made-with-mongo](https://img.shields.io/badge/Made%20with-MongoDB-brightgreen)](https://www.mongodb.com/)
-[![made-with-docker](https://img.shields.io/badge/Made%20with-Docker-important)](https://www.docker.com/)
-[![made-with-vscode](https://img.shields.io/badge/made%20with-vscode-blueviolet)](https://code.visualstudio.com/)
-[![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/Fazendaaa/RSMD/LICENSE.html)
-[![GitHub release](https://img.shields.io/github/release/Fazendaaa/RSMD.svg)](https://github.com/Fazendaaa/RSMD/releases/)
+[![made-with-r](https://img.shields.io/badge/Made%20with-R-1f425f.svg?style=flat-square)](https://www.r-project.org/)
+[![made-with-mongo](https://img.shields.io/badge/Made%20with-MongoDB-brightgreen?style=flat-square)](https://www.mongodb.com/)
+[![made-with-docker](https://img.shields.io/badge/Made%20with-Docker-important?style=flat-square)](https://www.docker.com/)
+[![made-with-vscode](https://img.shields.io/badge/made%20with-vscode-blueviolet?style=flat-square)](https://code.visualstudio.com/)
+[![GPL license](https://img.shields.io/badge/License-GPL-blue.svg?style=flat-square)](https://github.com/Fazendaaa/RSMD/LICENSE.html)
+[![GitHub release](https://img.shields.io/github/release/Fazendaaa/RSMD.svg?style=flat-square)](https://github.com/Fazendaaa/RSMD/releases/)
 
 </div>
 
@@ -95,10 +95,19 @@ Você consegue usar no seu celular também:
 
 ![celular](./img/third.webp)
 
+## Progressive Web Apps
+
+### Smartphone
+
+![PWA](https://media1.tenor.com/images/7247ed61cdad62f640f05fc08a56d607/tenor.gif?itemid=17780575)
+
+### Computador
+
+![MacOS](img/fourth.jpg)
+
 ## TODO
 
 - Melhorar o exmplo
-- Adicinar PWA
 - Documentar em vários idiomas este `README.md`
 
 ## Autor

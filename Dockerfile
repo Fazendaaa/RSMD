@@ -4,9 +4,15 @@ LABEL project="rsmd"
 
 WORKDIR /usr/src/app
 
-COPY DESCRIPTION DESCRIPTION 
+COPY DESCRIPTION . 
 
-RUN [ "apk", "add", "--no-cache", "openssl", "cyrus-sasl-dev" ]
+RUN [ "apk", "add", "--no-cache", \
+    "cyrus-sasl-dev", \
+    "libjpeg-turbo-dev", \
+    "libx11-dev", \
+    "openssl", \
+    "tiff-dev" \
+]
 RUN [ "R", "-e", "remotes::install_local('.')" ]
 
 COPY . .

@@ -9,7 +9,7 @@ library(shinydashboard)
 db <- NULL
 
 # Verificador para criar conexão com bd
-if ("" == Sys.getenv('HAS_DB')) {
+if ("TRUE" == Sys.getenv('HAS_DB')) {
     url <- paste0("mongodb://",
                   Sys.getenv('DB_USERNAME'), ":",
                   Sys.getenv('DB_PASSWORD'), "@",
@@ -20,14 +20,6 @@ if ("" == Sys.getenv('HAS_DB')) {
 
 # "Site" em si
 ui <- dashboardPage(
-    shinyPWA(list(
-        name = 'R + Shiy + Mongo + Docker',
-        shorname = 'RSMD',
-        display = 'standalone',
-        backgroundcolor = '#fdfdfd',
-        themecolor = '#db4938',
-        orientation = 'portrait-primary'        
-    ))
     dashboardHeader(title = "RSMD demo"),
     dashboardSidebar(
         sidebarMenu(
@@ -40,6 +32,16 @@ ui <- dashboardPage(
         )
     ),
     dashboardBody(
+        shinyPWA(list(
+            hasIcons = TRUE,
+            version = 'v1',
+            shortname = 'RSMD',
+            name = 'R + Shiy + Mongo + Docker',
+            display = 'standalone',
+            backgroundcolor = '#fdfdfd',
+            themecolor = '#db4938',
+            orientation = 'portrait-primary'        
+        )),
         tabItems(
             tabItem(tabName = "dashboard",
                 fluidRow(
