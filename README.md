@@ -21,6 +21,13 @@ R + Shiny + Mongo + Docker
 
 Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalados na sua máquina -- eu não precisei para desenvolver nem rodar --, nem em outra máquina para acesso remoto ou coisa do tipo. A ideia é mostrar como desenvolver um projeto usando esta stack que consiga rodar em qualquer sistema operacional, seja ele Linux, Windows ou Mac sem mesmo ter as ferramentas instaladas, como eu descrevo mais [aqui](https://fazenda.hashnode.dev/analise-de-dados-site-banco-de-dados-tudo-no-isso-seu-pc-e-sem-precisar-instalar-o-r-shiny-e-o-mongo-ckcfwjz380058kns13oye8f03).
 
+## Versões
+
+- [V 1.0.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.0.0): exemplo simples rodando o projeto todo
+- [V 1.1.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.1.0): exemplo com suporte a Progressive Web Apps (PWA)
+- [V 1.2.0](): adicionando Continuos Integration (CI) e Continuos Deployment (CD) -- trabalhando neste atualmente
+- [V 1.3.0](): adicionar suporte a HTTPS e DNS rodando na rede local -- exemplo de como um serviço na infra de um cliente
+
 ## Rodar
 
 ### Sem o código e sem BD
