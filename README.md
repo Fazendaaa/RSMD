@@ -8,6 +8,9 @@ R + Shiny + Mongo + Docker
 <br>
 <br>
 
+[![GitHub CI](https://github.com/Fazendaaa/RSMD/workflows/ci/badge.svg)](https://github.com/Fazendaaa/RSMD/.github/workflows/ci.yml)
+[![GitHub CD](https://github.com/Fazendaaa/RSMD/workflows/cd/badge.svg)](https://github.com/Fazendaaa/RSMD/.github/workflows/cd.yml)
+
 [![made-with-r](https://img.shields.io/badge/Made%20with-R-1f425f.svg?style=flat-square)](https://www.r-project.org/)
 [![made-with-mongo](https://img.shields.io/badge/Made%20with-MongoDB-brightgreen?style=flat-square)](https://www.mongodb.com/)
 [![made-with-docker](https://img.shields.io/badge/Made%20with-Docker-important?style=flat-square)](https://www.docker.com/)
@@ -16,6 +19,24 @@ R + Shiny + Mongo + Docker
 [![GitHub release](https://img.shields.io/github/release/Fazendaaa/RSMD.svg?style=flat-square)](https://github.com/Fazendaaa/RSMD/releases/)
 
 </div>
+
+- [RSMD](#rsmd)
+  - [Ideia](#ideia)
+  - [Versões](#versões)
+  - [Rodar](#rodar)
+    - [Sem o código e sem BD](#sem-o-código-e-sem-bd)
+    - [Com o código e com BD](#com-o-código-e-com-bd)
+    - [Sem o código e com BD](#sem-o-código-e-com-bd)
+  - [Banco de Dados](#banco-de-dados)
+  - [Celular](#celular)
+  - [Progressive Web Apps](#progressive-web-apps)
+    - [Smartphone](#smartphone)
+    - [Computador](#computador)
+  - [CI/CD](#cicd)
+  - [TODO](#todo)
+  - [Autor](#autor)
+  - [Licença](#licença)
+  - [Referências](#referências)
 
 ## Ideia
 
@@ -112,6 +133,10 @@ Você consegue usar no seu celular também:
 
 ![MacOS](img/fourth.jpg)
 
+## CI/CD
+
+<!-- Documentar aqui em versão resumida -->
+
 ## TODO
 
 - Melhorar o exmplo
@@ -132,3 +157,4 @@ Utilizando a [GNU V2](./LICENSE)
 - [mongo](https://hub.docker.com/_/mongo)
 - [mongolite](https://jeroen.github.io/mongolite/)
 - [Docker mongo image 'Connection refused' from other container](https://stackoverflow.com/a/34711892/7092954)
+- [Learn how to CI/CD with GitHub Actions and Docker](https://morioh.com/p/d85dcfec40ce)
