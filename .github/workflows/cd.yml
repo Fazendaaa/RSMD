@@ -12,7 +12,7 @@ jobs:
         name: spellcheck and docs
         container: docker://fazenda/rsmd
         steps:
-            run: |
+            - run: |
                 R -e 'spelling::spell_check_package()'
                 R -e 'devtools::document()'
                 R -e 'pkgdown::build_site()'
