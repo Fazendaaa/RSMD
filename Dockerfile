@@ -13,7 +13,7 @@ RUN [ "apk", "add", "--no-cache", \
     "openssl", \
     "tiff-dev" \
 ]
-RUN [ "R", "-e", "remotes::install_local('.')" ]
+RUN [ "R", "-e", "remotes::install_local('.', dependencies = TRUE)" ]
 
 COPY . .
 

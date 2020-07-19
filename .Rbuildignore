@@ -1,5 +1,9 @@
 ^\.github$
 ^img$
+^www$
 ^\.lintr$
 ^\.dockerignore$
 ^Dockerfile$
+^app\.R$
+^deploy\.sh$
+^docker\-compose\.yml$
