@@ -12,12 +12,8 @@ jobs:
         name: spellcheck and docs
         runs-on: ubuntu-latest
         steps:
-            name: spellcheck
             uses: docker://fazenda/rsmd
-            run: R -e 'spelling::spell_check_package()'
-            name: docs
-            uses: docker://fazenda/rsmd
-            run: R -e 'devtools::document()'
-            name: website
-            uses: docker://fazenda/rsmd
-            run: R -e 'pkgdown::build_site()'
+            run: |
+                R -e 'spelling::spell_check_package()'
+                R -e 'devtools::document()'
+                R -e 'pkgdown::build_site()'

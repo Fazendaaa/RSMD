@@ -14,11 +14,8 @@ jobs:
         name: test and analysis
         runs-on: ubuntu-latest
         steps:
-            name: testthat
-            uses: docker://fazenda/rsmd
-            run: R -e 'devtools::test()'
-            name: testthat
             uses: docker://fazenda/rsmd
             run: |
+                R -e 'devtools::test()'
                 R -e 'devtools::check()'
                 R -e 'goodpractice::gp()
