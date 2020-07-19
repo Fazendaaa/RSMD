@@ -10,8 +10,10 @@ on:
 jobs:
     spellcheck-docs:
         name: spellcheck and docs
-        container: docker://fazenda/rsmd
+        runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v1
+            - uses: docker://fazenda/rsmd
             - run: |
                 R -e 'spelling::spell_check_package()'
                 R -e 'devtools::document()'

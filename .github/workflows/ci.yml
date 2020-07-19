@@ -16,7 +16,7 @@ jobs:
         steps:
             - uses: actions/checkout@v1
             - uses: docker://fazenda/rsmd
-            run: |
+            - run: |
                 R -e 'devtools::test()'
                 R -e 'devtools::check()'
                 R -e 'goodpractice::gp()
