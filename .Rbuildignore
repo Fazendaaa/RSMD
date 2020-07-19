@@ -1,0 +1,5 @@
+^\.github$
+^img$
+^\.lintr$
+^\.dockerignore$
+^Dockerfile$
