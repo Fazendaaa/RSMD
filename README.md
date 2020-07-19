@@ -56,7 +56,7 @@ Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalado
 Caso seja um "negacionista" e não uma "testemunha de Docker" que nem eu, tudo bem. Uma imagem foi disponibilizada para rodar apenas um comando:
 
 ```shell
-docker run --publish 80:80 -it fazenda/rsmd "R -e 'shiny::runApp('.', host = '0.0.0.0', port = 80)"
+docker run --publish 80:80 -it fazenda/rsmd R -e "shiny::runApp('.', host = '0.0.0.0', port = 80)"
 ```
 
 Abra seu navegador e digite `localhost` nele.
