@@ -12,7 +12,8 @@ jobs:
         name: spellcheck and docs
         runs-on: ubuntu-latest
         steps:
-            uses: docker://fazenda/rsmd
+            - uses: actions/checkout@v1
+            - uses: docker://fazenda/rsmd
             run: |
                 R -e 'spelling::spell_check_package()'
                 R -e 'devtools::document()'
