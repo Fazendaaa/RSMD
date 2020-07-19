@@ -18,5 +18,3 @@ RUN [ "R", "-e", "remotes::install_local('.')" ]
 COPY . .
 
 EXPOSE 80
-
-ENTRYPOINT [ "R", "-e", "shiny::runApp('.', host = '0.0.0.0', port = 80)" ]
