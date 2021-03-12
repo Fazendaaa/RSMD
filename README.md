@@ -46,10 +46,18 @@ Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalado
 
 - [V 1.0.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.0.0): exemplo simples rodando o projeto todo
 - [V 1.1.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.1.0): exemplo com suporte a Progressive Web Apps (PWA)
-- [V 1.2.0](): adicionando Continuos Integration (CI) e Continuos Deployment (CD) -- trabalhando neste atualmente
-- [V 1.3.0](): adicionar suporte a HTTPS e DNS rodando na rede local -- exemplo de como um serviço na infra de um cliente
+- [V 1.2.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.2.0): exemplo com suporte a reverse proxy com o Traefik suportando HTTPS localmente
+- [V 1.3.0](): adicionando Continuos Integration (CI) e Continuos Deployment (CD) -- trabalhando neste atualmente
 
 ## Rodar
+
+**AVISO**: caso vá rodar qualquer comando com `docker-compose`, por favor procure instalar o makecert antes e rodar o seguinte comando antes:
+
+```shell
+curl https://gist.githubusercontent.com/Fazendaaa/289b72a80e2087577ee0fecee06e4417/raw/3b661272a8e18f978f1ecb5dd1453da1ff5801c6/gistfile1.txt | sh
+```
+
+Ele irá configurar sua máquina para que ela suporte os artefatos necessários para fazer com que a aplicação tenha um TLS local
 
 ### Sem o código e sem BD
 
@@ -73,9 +81,9 @@ Baixe ou clone este repositório. Entre na pasta e rode o seguinte comando:
 docker-compose up
 ```
 
-Abrir seu navegador e digitar `localhost` nele.
+Abrir seu navegador e digitar `rsmd.docker.localhost` nele.
 
-![database](./img/second.webp)
+![database](./img/second.png)
 
 Caso resolva brincar e fazer alterações no código, se lembre de rodar com as próximas vezes com a flag `--build` para o `docker-compose` não utilizar o cache gerado pela última execução
 

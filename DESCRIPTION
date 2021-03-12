@@ -28,11 +28,11 @@ Suggests:
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
 Imports: 
-    shiny,
-    shinydashboard,
-    rbokeh,
-    mongolite,
-    magrittr,
-    shinyPWA (>= 0.0.0.9000)
-Remotes:  
+    shiny (>= 1.6.0),
+    shinydashboard (>= 0.7.1),
+    rbokeh (>= 0.5.1),
+    magrittr (>= 1.5),
+    shinyPWA (>= 0.0.0.9000),
+    mongolite (>= 2.3.0)
+Remotes: 
     Fazendaaa/shinyPWA

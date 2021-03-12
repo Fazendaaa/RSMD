@@ -9,8 +9,6 @@ services:
         environment:
             - MONGO_INITDB_ROOT_USERNAME=root
             - MONGO_INITDB_ROOT_PASSWORD=example
-        networks:
-            - proxy
 
     mongo-express:
         image: mongo-express
@@ -31,7 +29,7 @@ services:
             - proxy
 
     shiny:
-        image: fazenda/rsmd
+        build: .
         container_name: shiny
         restart: on-failure
         command: R -e "shiny::runApp('.', host = '0.0.0.0', port = 80)"
@@ -39,10 +37,8 @@ services:
             - HAS_DB=TRUE
             - DB_USERNAME=root
             - DB_PASSWORD=example
-            - DB_HOST=mongodb # caso mude o nome do 'container_name' do mongodb, coloque o novo aqui
+            - DB_HOST=mongodb
             - DB_PORT=27017
-        depends_on:
-            - mongodb
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.shiny.tls=true"

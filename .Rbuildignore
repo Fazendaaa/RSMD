@@ -7,3 +7,5 @@
 ^app\.R$
 ^deploy\.sh$
 ^docker\-compose\.yml$
+^RSMD\.Rproj$
+^\.Rproj\.user$
