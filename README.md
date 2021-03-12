@@ -51,7 +51,13 @@ Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalado
 
 ## Rodar
 
-**AVISO**: caso vá rodar qualquer comando com `docker-compose`, por favor procure instalar o makecert antes e rodar o seguinte comando antes:
+Caso tenha caído de gaiato no navio, por favor dê uma olhada no arquivo [Makefile](./Makefile) antes de tudo e caso não sabia o que ele faz, basicamente ele irá configurar a sua máquina para este projeto. Basicamente só abrir um terminal e digitar o seguinte comando:
+
+```shell
+make
+```
+
+**AVISO**: caso vá rodar qualquer comando com `docker-compose`, por favor procure instalar o [mkcert](https://github.com/FiloSottile/mkcert) antes e rodar o seguinte comando antes:
 
 ```shell
 curl https://gist.githubusercontent.com/Fazendaaa/289b72a80e2087577ee0fecee06e4417/raw/3b661272a8e18f978f1ecb5dd1453da1ff5801c6/gistfile1.txt | sh
