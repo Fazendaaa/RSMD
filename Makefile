@@ -4,14 +4,10 @@ ARCHS:=linux/amd64
 PROJECT_TAG:=latest
 
 ifeq (true, $(MULTIARCH))
-	ARCHS:=linux/amd64,\
-	linux/arm/v7,\
-	linux/arm/v6,\
-	linux/arm64/v8,\
-	linux/386
+	ARCHS:=linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64/v8,linux/386
 endif
 
-all: install setup build
+all: install setup
 
 install:
 	@curl -fSL https://get.docker.com | sh
@@ -26,5 +22,4 @@ setup:
 	@docker buildx inspect --bootstrap
 
 build:
-	@docker buildx build --platform $(ARCHS) \
-	--push --tag ${REGISTRY_OWNER}/rsmd:${PROJECT_TAG} .
+	docker buildx build --platform $(ARCHS) --push --tag ${REGISTRY_OWNER}/rsmd:${PROJECT_TAG} .
