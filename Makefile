@@ -22,4 +22,4 @@ setup:
 	@docker buildx inspect --bootstrap
 
 build:
-	docker buildx build --platform $(ARCHS) --push --tag ${REGISTRY_OWNER}/rsmd:${PROJECT_TAG} .
+	@docker buildx build --platform $(ARCHS) --push --tag ${REGISTRY_OWNER}/rsmd:${PROJECT_TAG} .
