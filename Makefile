@@ -4,7 +4,7 @@ ARCHS:=linux/amd64
 PROJECT_TAG:=latest
 
 ifeq (true, $(MULTIARCH))
-	ARCHS:=linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64/v8,linux/386
+	ARCHS:=linux/amd64,linux/arm64/v8
 endif
 
 all: install setup
