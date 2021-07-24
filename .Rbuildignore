@@ -3,9 +3,9 @@
 ^www$
 ^\.lintr$
 ^\.dockerignore$
+^Makefile$
 ^Dockerfile$
-^app\.R$
 ^deploy\.sh$
-^docker\-compose\.yml$
+^docker\-compose\*$
 ^RSMD\.Rproj$
 ^\.Rproj\.user$

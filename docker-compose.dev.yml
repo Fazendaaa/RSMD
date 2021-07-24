@@ -31,14 +31,19 @@ services:
             - proxy
 
     shiny:
-        build: .
+        build:
+            context: .
+            target: run
         container_name: shiny
         restart: on-failure
-        command: R -e "shiny::runApp('.', host = '0.0.0.0', port = 80)"
+        command: R -e "shiny::runApp('inst/app.R', host = '0.0.0.0', port = 80)"
         environment:
+            - HAS_API=TRUE
             - HAS_DB=TRUE
+            - DB_URI=mongodb
             - DB_USERNAME=root
             - DB_PASSWORD=example
+            - DB_NAME=rsmd
             - DB_HOST=mongodb
             - DB_PORT=27017
         labels:
