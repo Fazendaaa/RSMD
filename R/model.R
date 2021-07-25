@@ -23,3 +23,33 @@
 #' @keywords internal
 #'
 histogramModel <- function(breaks) breaks
+
+#' Has Eratosthenes
+#'
+#' @description
+#' Goes throught the given set of values and check whether or not contains any
+#' prime number in it.
+#'
+#' @section Maintainers:
+#' Fazendaaa
+#'
+#' @author Fazendaaa
+#'
+#' @param set - provide values to check for primes in it
+#'
+#' @examples
+#' \dontrun{
+#'    hasEratosthenes(1:10)
+#'    hasEratosthenes(1:100)
+#'    hasEratosthenes(1:1000)
+#' }
+#'
+#' @return whether or not primes are presented
+#'
+#' @keywords internal
+#'
+hasEratosthenes <- function(set) {
+  primes <- eratosthenesSieve(max(set))
+
+  return (0 < length(intersect(set, primes)))
+}

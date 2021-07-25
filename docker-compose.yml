@@ -30,12 +30,25 @@ services:
         networks:
             - proxy
 
+    siever:
+        image: fazenda/siever
+        container_name: siever
+        command: Rscript inst/plumber.R
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.siever.tls=true"
+            - "traefik.http.services.siever.loadbalancer.server.port=80"
+            - "traefik.http.routers.siever.rule=Host(`siever.docker.localhost`)"
+        networks:
+            - proxy
+
     shiny:
         image: fazenda/rsmd
         container_name: shiny
         restart: on-failure
         command: R -e "shiny::runApp('inst/app.R', host = '0.0.0.0', port = 80)"
         environment:
+            - SIEVE_HOST=siever
             - HAS_API=TRUE
             - HAS_DB=TRUE
             - DB_URI=mongodb
