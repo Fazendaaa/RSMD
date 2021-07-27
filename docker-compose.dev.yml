@@ -33,7 +33,6 @@ services:
     siever:
         image: fazenda/siever
         container_name: siever
-        command: Rscript inst/plumber.R
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.siever.tls=true"
