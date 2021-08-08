@@ -23,6 +23,8 @@ R + Shiny + Mongo + Docker
 - [RSMD](#rsmd)
   - [Ideia](#ideia)
   - [Versões](#versões)
+    - [Feitas](#feitas)
+    - [A fazer](#a-fazer)
   - [Rodar](#rodar)
     - [Sem o código e sem BD](#sem-o-código-e-sem-bd)
     - [Com o código e com BD](#com-o-código-e-com-bd)
@@ -44,10 +46,23 @@ Mesmo sendo um projeto que utiliza R e Mongo, você não precisa deles instalado
 
 ## Versões
 
+### Feitas
+
 - [V 1.0.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.0.0): exemplo simples rodando o projeto todo
 - [V 1.1.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.1.0): exemplo com suporte a Progressive Web Apps (PWA)
 - [V 1.2.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.2.0): exemplo com suporte a reverse proxy com o Traefik suportando HTTPS localmente
-- [V 1.3.0](): adicionando Continuos Integration (CI) e Continuos Deployment (CD) -- trabalhando neste atualmente
+- [V 1.3.0](https://github.com/Fazendaaa/RSMD/releases/tag/1.2.0): segmentação de escopo para facilitar manutenção e escalabilidade com APIs
+
+### A fazer
+
+- Adicionar Continuos Integration (CI) e Continuos Deployment (CD)Ç
+  - Github Actions
+  - Rancher
+  - AWS
+  - Google Cloud
+  - Azure
+  - Linode
+- Publicar na Play Store/Microsoft Store
 
 ## Rodar
 
