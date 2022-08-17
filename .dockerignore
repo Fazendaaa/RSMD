@@ -1,6 +1,5 @@
 .circleci
 .github
+.vscode
 img
 .gitingore
-deploy.sh
-docker-compose.yml

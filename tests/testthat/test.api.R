@@ -1,3 +1,3 @@
-test_that('histogram model 1000', {
-    expect_equal(histogramModel(1000), histogramModel)
+test_that('Eratosthenes Sieve 1000', {
+    expect_equal(eratosthenesSieve(1000), 1000)
 })

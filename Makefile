@@ -11,17 +11,17 @@ all: install setup
 
 install:
 	@curl -fSL https://get.docker.com | sh
-	sudo usermod -aG docker $USER
-	sudo systemctl enable docker
-	sudo systemctl start docker
+	@sudo usermod -aG docker $USER
+	@sudo systemctl enable docker
+	@sudo systemctl start docker
 
 # https://github.com/docker/buildx/issues/132#issuecomment-847136842
 setup:
-	@LATEST=$(wget -qO- "https://api.github.com/repos/docker/buildx/releases/latest" | jq -r .name)
-	@wget https://github.com/docker/buildx/releases/download/$LATEST/buildx-$LATEST.linux-amd64
-	@chmod a+x buildx-$LATEST.linux-amd64
-	@mkdir -p ~/.docker/cli-plugins
-	@mv buildx-$LATEST.linux-amd64 ~/.docker/cli-plugins/docker-buildx
+	@LATEST=$(shell wget -qO- "https://api.github.com/repos/docker/buildx/releases/latest" | jq -r .name); \
+		wget https://github.com/docker/buildx/releases/download/$$LATEST/buildx-$$LATEST.linux-amd64; \
+		chmod a+x buildx-$$LATEST.linux-amd64; \
+		mkdir -p ~/.docker/cli-plugins; \
+		mv buildx-$$LATEST.linux-amd64 ~/.docker/cli-plugins/docker-buildx;
 	@docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 	@docker buildx rm builder
 	@docker buildx create --name builder --driver docker-container --use

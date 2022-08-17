@@ -42,9 +42,7 @@ services:
       - proxy
 
   shiny:
-    build:
-      context: .
-      target: test
+    build: .
     container_name: shiny
     restart: on-failure
     command: R -e "devtools::test()"
