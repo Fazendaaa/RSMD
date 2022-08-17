@@ -2,90 +2,88 @@ version: '3'
 
 services:
 
-    mongodb:
-        image: mongo:3.6
-        container_name: mongodb
-        restart: on-failure
-        environment:
-            - MONGO_INITDB_ROOT_USERNAME=root
-            - MONGO_INITDB_ROOT_PASSWORD=example
-        networks:
-            - proxy
+  mongodb:
+    image: mongo:3.6
+    container_name: mongodb
+    restart: on-failure
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    networks:
+      - proxy
 
-    mongo-express:
-        image: mongo-express
-        container_name: mongo-express
-        environment:
-            - ME_CONFIG_MONGODB_SERVER=mongodb
-            - ME_CONFIG_MONGODB_ADMINUSERNAME=root
-            - ME_CONFIG_MONGODB_ADMINPASSWORD=example
-            - ME_CONFIG_BASICAUTH_USERNAME=rsmd
-            - ME_CONFIG_BASICAUTH_PASSWORD=rsmd
-        depends_on:
-            - mongodb
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.mongo-express.tls=true"
-            - "traefik.http.routers.mongo-express.rule=Host(`mongo-express.docker.localhost`)"
-        networks:
-            - proxy
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=example
+      - ME_CONFIG_BASICAUTH_USERNAME=rsmd
+      - ME_CONFIG_BASICAUTH_PASSWORD=rsmd
+    depends_on:
+      - mongodb
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mongo-express.tls=true"
+      - "traefik.http.routers.mongo-express.rule=Host(`mongo-express.docker.localhost`)"
+    networks:
+      - proxy
 
-    siever:
-        image: fazenda/siever
-        container_name: siever
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.siever.tls=true"
-            - "traefik.http.services.siever.loadbalancer.server.port=80"
-            - "traefik.http.routers.siever.rule=Host(`siever.docker.localhost`)"
-        networks:
-            - proxy
+  siever:
+    image: fazenda/siever
+    container_name: siever
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.siever.tls=true"
+      - "traefik.http.services.siever.loadbalancer.server.port=80"
+      - "traefik.http.routers.siever.rule=Host(`siever.docker.localhost`)"
+    networks:
+      - proxy
 
-    shiny:
-        image: fazenda/rsmd
-        container_name: shiny
-        restart: on-failure
-        command: R -e "shiny::runApp('inst/app.R', host = '0.0.0.0', port = 80)"
-        environment:
-            - SIEVE_HOST=siever
-            - HAS_API=TRUE
-            - HAS_DB=TRUE
-            - DB_URI=mongodb
-            - DB_USERNAME=root
-            - DB_PASSWORD=example
-            - DB_NAME=rsmd
-            - DB_HOST=mongodb # caso mude o nome do 'container_name' do mongodb, coloque o novo aqui
-            - DB_PORT=27017
-        depends_on:
-            - mongodb
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.shiny.tls=true"
-            - "traefik.http.routers.shiny.rule=Host(`rsmd.docker.localhost`)"
-        depends_on:
-            - mongodb
-        networks:
-            - proxy
+  shiny:
+    image: fazenda/rsmd
+    container_name: shiny
+    restart: on-failure
+    command: R -e "shiny::runApp('inst/app.R', host = '0.0.0.0', port = 80)"
+    environment:
+      - SIEVE_HOST=siever
+      - HAS_API=TRUE
+      - HAS_DB=TRUE
+      - DB_URI=mongodb
+      - DB_USERNAME=root
+      - DB_PASSWORD=example
+      - DB_NAME=rsmd
+      - DB_HOST=mongodb # caso mude o nome do 'container_name' do mongodb, coloque o novo aqui
+      - DB_PORT=27017
+    depends_on:
+      - mongodb
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.shiny.tls=true"
+      - "traefik.http.routers.shiny.rule=Host(`rsmd.docker.localhost`)"
+    networks:
+      - proxy
 
-    reverse-proxy:
-        image: traefik:v2.3
-        security_opt:
-            - no-new-privileges:true
-        ports:
-            - "80:80"
-            - "443:443"
-            - "8080:8080"
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock:ro
-            - ${HOME}/.certs:/etc/certs:ro
-            - ${HOME}/.traefik/traefik.yml:/etc/traefik/traefik.yml:ro
-            - ${HOME}/.traefik/config.yml:/etc/traefik/config.yml:ro
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.traefik=true"
-        networks:
-            - proxy
+  reverse-proxy:
+    image: traefik:v2.3
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${HOME}/.certs:/etc/certs:ro
+      - ${HOME}/.traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ${HOME}/.traefik/config.yml:/etc/traefik/config.yml:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik=true"
+    networks:
+      - proxy
 
 networks:
-    proxy:
-        external: true
+  proxy:
+    external: true
