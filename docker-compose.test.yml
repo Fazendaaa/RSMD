@@ -45,7 +45,7 @@ services:
     build: .
     container_name: shiny
     restart: on-failure
-    command: R -e "devtools::test()"
+    command: R -e "devtools::test('.')"
     environment:
       - SIEVE_HOST=siever
       - HAS_API=TRUE
