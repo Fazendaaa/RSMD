@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: rsmd
+  labels:
+    app: rsmd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: rsmd
+  template:
+    metadata:
+      labels:
+        application: rsmd
+    spec:
+      containers:
+      - command: [ "R", "-e", "shiny::runApp('inst/app.R', host = '0.0.0.0', port = 80)" ]
+        image: fazenda/rsmd
+        imagePullPolicy: Always
+        name: rsmd
+        ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
+        securityContext:
+          privileged: false
+      imagePullSecrets:
+      - name: regcred
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rsmd
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    application: rsmd
+  type: ClusterIP
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rsmd-tls
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`lke.rsmd.fazenda.solutions`)
+    kind: Rule
+    services:
+    - name: rsmd
+      port: 80
+  tls:
+    certResolver: default
