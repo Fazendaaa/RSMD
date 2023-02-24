@@ -1,10 +1,10 @@
 REGISTRY_OWNER:=fazenda
-MULTIARCH:=false
+MULTIARCH:=true
 ARCHS:=linux/amd64
 PROJECT_TAG:=latest
 
 ifeq (true, $(MULTIARCH))
-	ARCHS:=linux/amd64,linux/arm64/v8
+	ARCHS:=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8
 endif
 
 all: install setup
@@ -23,7 +23,7 @@ setup:
 		mkdir -p ~/.docker/cli-plugins; \
 		mv buildx-$$LATEST.linux-amd64 ~/.docker/cli-plugins/docker-buildx;
 	@docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-	@docker buildx rm builder
+	# @docker buildx rm builder
 	@docker buildx create --name builder --driver docker-container --use
 	@docker buildx inspect --bootstrap
 
