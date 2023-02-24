@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.2",
+    "Version": "4.2.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -830,10 +830,15 @@
     },
     "openssl": {
       "Package": "openssl",
-      "Version": "2.0.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "6d3bef2e305f55c705c674653c7d7d3d",
+      "Version": "2.0.5",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "Fazendaaa",
+      "RemoteRepo": "openssl",
+      "RemoteRef": "master",
+      "RemoteSha": "370442b874e86fac42e7d5cb725e0202a678e2b5",
+      "Hash": "e7f6d1c829fc8fc28957ea3684fbc04b",
       "Requirements": [
         "askpass"
       ]
@@ -1173,14 +1178,8 @@
     "rstudioapi": {
       "Package": "rstudioapi",
       "Version": "0.13",
-      "Source": "CRAN",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "rstudioapi",
-      "RemoteRef": "rstudioapi",
-      "RemoteRepos": "https://brieger.esalq.usp.br/CRAN",
-      "RemotePkgPlatform": "source",
-      "RemoteSha": "0.13",
       "Hash": "06c85365a03fdaf699966cc1d3cf53ea",
       "Requirements": []
     },
