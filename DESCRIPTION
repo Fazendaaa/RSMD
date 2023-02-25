@@ -20,7 +20,6 @@ Suggests:
     lintr,
     roxygen2,
     pkgdown,
-    devtools,
     goodpractice,
     rmarkdown,
     knitr,
@@ -37,7 +36,8 @@ Imports:
     curl (>= 4.3.0.9000),
     openssl (>= 2.0.5),
     stringr (>= 1.5.0),
-    pak (>= 0.2.1)
+    pak (>= 0.2.1),
+    devtools (>= 2.4.5)
 Remotes: 
     Fazendaaa/shinyPWA,
     bokeh/rbokeh,
