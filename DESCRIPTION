@@ -35,8 +35,10 @@ Imports:
     mongolite (>= 2.3.0),
     rbokeh (>= 0.5.0),
     curl (>= 4.3.0.9000),
-    openssl (>= 2.0.5)
-Remotes:  
+    openssl (>= 2.0.5),
+    stringr (>= 1.5.0),
+    pak (>= 0.2.1)
+Remotes: 
     Fazendaaa/shinyPWA,
     bokeh/rbokeh,
     Fazendaaa/openssl
