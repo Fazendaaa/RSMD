@@ -38,9 +38,11 @@ Imports:
     stringr (>= 1.5.0),
     pak (>= 0.2.1),
     devtools (>= 2.4.5),
-    systemfonts (>= 1.0.4.9000)
+    systemfonts (>= 1.0.4.9000),
+    ragg (>= 1.2.5.9000)
 Remotes:  
     Fazendaaa/shinyPWA,
     bokeh/rbokeh,
     Fazendaaa/openssl,
-    Fazendaaa/systemfonts
+    Fazendaaa/systemfonts,
+    Fazendaaa/ragg

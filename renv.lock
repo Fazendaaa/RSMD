@@ -1041,10 +1041,15 @@
     },
     "ragg": {
       "Package": "ragg",
-      "Version": "1.2.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "690bc058ea2b1b8a407d3cfe3dce3ef9",
+      "Version": "1.2.5.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "Fazendaaa",
+      "RemoteRepo": "ragg",
+      "RemoteRef": "main",
+      "RemoteSha": "ce213edb6ea9e2556c741cb4a1e695cba1d6862a",
+      "Hash": "3411a37428c4fedadf122facded04ea7",
       "Requirements": [
         "systemfonts",
         "textshaping"
