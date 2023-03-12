@@ -14,7 +14,7 @@ RUN [ "apk", "add", "--no-cache", \
   "fribidi-dev", \
   "openssl", \
   "tiff-dev" \
-]
+  ]
 
 COPY DESCRIPTION .
 COPY renv.lock .
@@ -28,5 +28,6 @@ COPY tests tests/
 COPY R R/
 
 RUN [ "R", "-e", "devtools::document('.')" ]
+RUN [ "R", "-e", "renv::install('.')" ]
 
 EXPOSE 80
