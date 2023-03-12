@@ -23,7 +23,8 @@ Suggests:
     goodpractice,
     rmarkdown,
     knitr,
-    assertthat
+    assertthat,
+    devtools (>= 2.4.5)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
@@ -37,7 +38,6 @@ Imports:
     openssl (>= 2.0.5),
     stringr (>= 1.5.0),
     pak (>= 0.2.1),
-    devtools (>= 2.4.5),
     systemfonts (>= 1.0.4.9000),
     ragg (>= 1.2.5.9000)
 Remotes:  
