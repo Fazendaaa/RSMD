@@ -9,26 +9,20 @@ export(sidebarView)
 importFrom(curl,curl_fetch_memory)
 importFrom(magrittr,"%>%")
 importFrom(mongolite,mongo)
-importFrom(plotly,
-  add_histogram,
-  add_trace,
-  layout,
-  plot_ly,
-  plotlyOutput,
-  renderPlotly
-)
-importFrom(shiny,
-  fluidRow,
-  renderTable
-)
+importFrom(plotly,add_histogram)
+importFrom(plotly,add_trace)
+importFrom(plotly,layout)
+importFrom(plotly,plot_ly)
+importFrom(plotly,plotlyOutput)
+importFrom(plotly,renderPlotly)
+importFrom(shiny,fluidRow)
+importFrom(shiny,renderTable)
 importFrom(shinyPWA,shinyPWA)
-importFrom(shinydashboard,
-  box,
-  dashboardBody,
-  dashboardHeader,
-  dashboardSidebar,
-  menuItem,
-  sidebarMenu,
-  tabItem,
-  tabItems
-)
+importFrom(shinydashboard,box)
+importFrom(shinydashboard,dashboardBody)
+importFrom(shinydashboard,dashboardHeader)
+importFrom(shinydashboard,dashboardSidebar)
+importFrom(shinydashboard,menuItem)
+importFrom(shinydashboard,sidebarMenu)
+importFrom(shinydashboard,tabItem)
+importFrom(shinydashboard,tabItems)

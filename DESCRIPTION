@@ -36,14 +36,8 @@ Imports:
     curl (>= 4.3.0.9000),
     openssl (>= 2.0.5),
     stringr (>= 1.5.0),
-    pak (>= 0.2.1),
-    systemfonts (>= 1.0.4.9000),
     ragg (>= 1.2.5.9000),
     plotly (>= 4.12.1)
 Remotes:
     Fazendaaa/shinyPWA,
-    Fazendaaa/openssl,
-    Fazendaaa/systemfonts,
-    Fazendaaa/ragg,
-    Fazendaaa/mongolite
 Config/roxygen2/version: 8.1.0

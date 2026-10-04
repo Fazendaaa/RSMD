@@ -5,10 +5,11 @@ LABEL project="rsmd"
 WORKDIR /usr/src/
 
 RUN [ "apk", "add", "--no-cache", \
+  "build-base", \
+  "gfortran", \
+  "openblas-dev", \
+  "lapack-dev", \
   "cmake", \
-  "gcc", \
-  "g++", \
-  "make", \
   "curl-dev", \
   "openssl-dev", \
   "cyrus-sasl-dev", \
@@ -42,8 +43,8 @@ COPY man man/
 COPY tests tests/
 COPY R R/
 
-RUN [ "R", "-e", "devtools::document('.')" ]
-RUN [ "R", "-e", "renv::install('.')" ]
+RUN [ "R", "-e", "roxygen2::roxygenise('.')" ]
+RUN [ "R", "-e", "devtools::install('.')" ]
 
 EXPOSE 80
 
