@@ -182,7 +182,6 @@ Utilizando a [GNU V2](./LICENSE)
 ## Referências
 
 - [Getting started with Shiny Dashboard](https://rstudio.github.io/shinydashboard/get_started.html)
-- [rbokehOutput](https://rdrr.io/cran/rbokeh/man/rbokehOutput.html)
 - [mongo](https://hub.docker.com/_/mongo)
 - [mongolite](https://jeroen.github.io/mongolite/)
 - [Docker mongo image 'Connection refused' from other container](https://stackoverflow.com/a/34711892/7092954)

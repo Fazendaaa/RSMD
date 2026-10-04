@@ -40,7 +40,7 @@ ui <- shinydashboard::dashboardPage(
 #' @keywords internal
 #'
 server <- function(input, output, session) {
-  output[['rbokeh']] <- RSMD::histogramView(input, output, session)
+  output[['plotly']] <- RSMD::histogramView(input, output, session)
   output[['db']] <- RSMD::dbView(input, output, session)
 }
 

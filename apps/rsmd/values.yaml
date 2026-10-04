@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: docker.io/fazenda/rsmd # 👈 Updated for Docker Hub
+  pullPolicy: Always
+  tag: sha-latest
+
+env:
+  HAS_DB: TRUE
+  HAS_API: TRUE
+  DB_HOST: mongodb.mongodb.svc.cluster.local
+  DB_PORT: 27017
+  DB_NAME: rsmd
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi

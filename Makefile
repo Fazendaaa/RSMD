@@ -32,3 +32,6 @@ build:
 
 test:
 	@docker-compose --file=docker-compose.test.yml up --build
+
+dev:
+	@docker-compose --file=docker-compose.dev.yml up --build

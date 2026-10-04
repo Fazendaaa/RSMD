@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-
   mongodb:
     image: mongo:3.6
     container_name: mongodb
@@ -24,9 +23,9 @@ services:
     depends_on:
       - mongodb
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.mongo-express.tls=true"
-      - "traefik.http.routers.mongo-express.rule=Host(`mongo-express.docker.localhost`)"
+      - traefik.enable=true
+      - traefik.http.routers.mongo-express.tls=true
+      - traefik.http.routers.mongo-express.rule=Host(`mongo-express.docker.localhost`)
     networks:
       - proxy
 
@@ -34,18 +33,20 @@ services:
     image: fazenda/siever
     container_name: siever
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.siever.tls=true"
-      - "traefik.http.services.siever.loadbalancer.server.port=80"
-      - "traefik.http.routers.siever.rule=Host(`siever.docker.localhost`)"
+      - traefik.enable=true
+      - traefik.http.routers.siever.tls=true
+      - traefik.http.services.siever.loadbalancer.server.port=80
+      - traefik.http.routers.siever.rule=Host(`siever.docker.localhost`)
     networks:
       - proxy
 
   shiny:
-    build: .
+    build:
+      dockerfile: ./Dockerfile
+      args:
+        - GITHUB_PAT=${GITHUB_PAT}
     container_name: shiny
     restart: on-failure
-    command: R -e "shiny::runApp('inst/app.R', host = '0.0.0.0', port = 80)"
     environment:
       - SIEVE_HOST=siever
       - HAS_API=TRUE
@@ -57,30 +58,30 @@ services:
       - DB_HOST=mongodb
       - DB_PORT=27017
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.shiny.tls=true"
-      - "traefik.http.routers.shiny.rule=Host(`rsmd.docker.localhost`)"
+      - traefik.enable=true
+      - traefik.http.routers.shiny.tls=true
+      - traefik.http.routers.shiny.rule=Host(`rsmd.docker.localhost`)
     depends_on:
       - mongodb
     networks:
       - proxy
 
   reverse-proxy:
-    image: traefik:v2.3
+    image: traefik:v3.7.10
     security_opt:
       - no-new-privileges:true
     ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
+      - 80:80
+      - 443:443
+      - 8080:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${HOME}/.certs:/etc/certs:ro
       - ${HOME}/.traefik/traefik.yml:/etc/traefik/traefik.yml:ro
       - ${HOME}/.traefik/config.yml:/etc/traefik/config.yml:ro
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.traefik=true"
+      - traefik.enable=true
+      - traefik.http.routers.traefik=true
     networks:
       - proxy
 

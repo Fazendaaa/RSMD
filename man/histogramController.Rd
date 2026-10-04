@@ -15,12 +15,7 @@ histogramController(breaks)
 Number of breaks
 }
 \description{
-Adds desired the desired number of breaks to Mongos's dabase if \code{HAS_DB} is
-configured then return the histogram containing the density.
-}
-\details{
-If \code{HAS_DB} is not configured, it will just return the graphic. And if
-\code{HAS_API} is configured, it will use it to configure the breaks values.
+Adds desired the desired number of breaks to Mongos's database.
 }
 \section{Maintainers}{
 

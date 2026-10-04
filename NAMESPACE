@@ -6,21 +6,29 @@ export(dbView)
 export(headerView)
 export(histogramView)
 export(sidebarView)
+importFrom(curl,curl_fetch_memory)
 importFrom(magrittr,"%>%")
 importFrom(mongolite,mongo)
-importFrom(rbokeh,figure)
-importFrom(rbokeh,ly_density)
-importFrom(rbokeh,ly_hist)
-importFrom(rbokeh,rbokehOutput)
-importFrom(rbokeh,renderRbokeh)
-importFrom(shiny,fluidRow)
-importFrom(shiny,renderTable)
+importFrom(plotly,
+  add_histogram,
+  add_trace,
+  layout,
+  plot_ly,
+  plotlyOutput,
+  renderPlotly
+)
+importFrom(shiny,
+  fluidRow,
+  renderTable
+)
 importFrom(shinyPWA,shinyPWA)
-importFrom(shinydashboard,box)
-importFrom(shinydashboard,dashboardBody)
-importFrom(shinydashboard,dashboardHeader)
-importFrom(shinydashboard,dashboardSidebar)
-importFrom(shinydashboard,menuItem)
-importFrom(shinydashboard,sidebarMenu)
-importFrom(shinydashboard,tabItem)
-importFrom(shinydashboard,tabItems)
+importFrom(shinydashboard,
+  box,
+  dashboardBody,
+  dashboardHeader,
+  dashboardSidebar,
+  menuItem,
+  sidebarMenu,
+  tabItem,
+  tabItems
+)

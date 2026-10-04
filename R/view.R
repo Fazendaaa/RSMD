@@ -17,23 +17,32 @@
 #'    histogramView()
 #' }
 #'
-#' @importFrom rbokeh renderRbokeh
-#' @importFrom rbokeh figure ly_hist ly_density
+#' @importFrom plotly renderPlotly plot_ly add_histogram add_trace layout
 #'
 #' @return Histogram's page
 #'
 #' @export
 #'
-histogramView <- function(input, output, session) renderRbokeh({
+histogramView <- function(input, output, session) renderPlotly({
   modfiedBreaks <- histogramController(input[['breaks']])
 
-  figure() %>%
-    ly_hist(eruptions,
-            data = faithful,
-            breaks = modfiedBreaks,
-            freq = FALSE) %>%
-    ly_density(eruptions,
-               data = faithful)
+  dens <- stats::density(faithful$eruptions)
+
+  plot_ly() %>%
+    add_histogram(data = faithful,
+                  x = ~eruptions,
+                  nbinsx = modfiedBreaks,
+                  histnorm = "probability density",
+                  name = "Histogram",
+                  marker = list(color = 'rgba(68, 68, 68, 0.5)')) %>%
+    add_trace(x = dens$x,
+              y = dens$y,
+              type = "scatter",
+              mode = "lines",
+              name = "Density",
+              line = list(color = 'red')) %>%
+    layout(xaxis = list(title = "eruptions"),
+           yaxis = list(title = "density"))
 })
 
 #' Database View
@@ -134,7 +143,7 @@ sidebarView <- function() dashboardSidebar(
 #' @importFrom shiny fluidRow
 #' @importFrom shinyPWA shinyPWA
 #' @importFrom shinydashboard dashboardBody tabItems tabItem box
-#' @importFrom rbokeh rbokehOutput
+#' @importFrom plotly plotlyOutput
 #'
 #' @return Body's component
 #'
@@ -154,9 +163,9 @@ bodyView <- function() dashboardBody(
   tabItems(
     tabItem(tabName = 'dashboard',
       fluidRow(
-        rbokehOutput('rbokeh',
-                      width = 500,
-                      height = 540),
+        plotlyOutput('plotly',
+                     width = 500,
+                     height = 540),
         box(
             title = 'Controles',
             sliderInput('breaks',

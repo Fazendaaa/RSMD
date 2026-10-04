@@ -1,7 +1,7 @@
 Package: RSMD
 Title: Showcase of R + Shiny + Mongo + Docker
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R:
     person(given = "Lucas",
            family = "Carrotta",
            role = c("aut", "cre"),
@@ -14,36 +14,36 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/Fazendaaa/RSMD
 BugReports: https://github.com/Fazendaaa/RSMD/issues
-Suggests: 
-    testthat,
-    covr,
-    lintr,
-    roxygen2,
-    pkgdown,
-    goodpractice,
-    rmarkdown,
-    knitr,
-    assertthat,
-    devtools (>= 2.4.5)
+Suggests:
+    testthat (>= 3.3.2),
+    covr (>= 3.6.5),
+    lintr (>= 3.4.0),
+    roxygen2 (>= 8.1.0),
+    pkgdown (>= 2.2.1),
+    goodpractice (>= 1.2.0),
+    rmarkdown (>= 2.32),
+    knitr (>= 1.52),
+    assertthat (>= 0.2.1),
+    devtools (>= 2.5.2),
+    usethis (>= 3.2.2)
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
-Imports: 
+Imports:
     shiny (>= 1.6.0),
     shinydashboard (>= 0.7.1),
     magrittr (>= 1.5),
     shinyPWA (>= 0.0.0.9000),
     mongolite (>= 2.7.1),
-    rbokeh (>= 0.5.2),
     curl (>= 4.3.0.9000),
     openssl (>= 2.0.5),
     stringr (>= 1.5.0),
     pak (>= 0.2.1),
     systemfonts (>= 1.0.4.9000),
-    ragg (>= 1.2.5.9000)
-Remotes:  
+    ragg (>= 1.2.5.9000),
+    plotly (>= 4.12.1)
+Remotes:
     Fazendaaa/shinyPWA,
-    bokeh/rbokeh,
     Fazendaaa/openssl,
     Fazendaaa/systemfonts,
     Fazendaaa/ragg,
     Fazendaaa/mongolite
+Config/roxygen2/version: 8.1.0

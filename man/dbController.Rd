@@ -13,7 +13,9 @@ The saved content
 Fecthes the saved content from Mongo's Database if \code{HAS_DB} is set.
 }
 \details{
-If \code{HAS_DB} is not configured, it will just provide message saying that.
+If \code{HAS_DB} is not configured, it will just provide message saying that. And
+if \code{HAS_API} is configured, it will use it to check whether or not the values
+contains prime numbers in it.
 }
 \section{Maintainers}{
 
